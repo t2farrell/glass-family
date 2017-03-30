@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Glass Family Prototype</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div id="familyConfigFormContainer">
+            <form id="familyConfigForm" class="form-horizontal">
+                <div class="control-group">
+                    <h3>Step 1: Enter Your Family Name</h3>
+                    <label class="control-label" for="txtFamilyName">Family Name:</label>
+                    <div class="controls">
+                        <input id="txtFamilyName" type="text" maxlength="18" data-bind="value: familyName, enable: $root.editMode" />
+                        (max: 18 characters)
+                    </div>
+                </div>
+                <div class="control-group">
+                    <h3>Step 2: Select the Number of People in Your Family</h3>
+                    <label class="control-label" for="ddNumberFamilyMembers">Family Members:</label>
+                    <div class="controls">
+                        <select id="ddNumberFamilyMembers" name="ddNumberFamilyMembers" data-bind="value: $root.numberOfVisibleMembers, enable: $root.editMode">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <h3>Step 3: Use the Edit buttons to define the properties for each family member</h3>
+        </div>
+        <div id="previewFrameWrapper" class="text-center">
+            <div id="previewFrame">
+                <div id="familyNameLabel" class="text-center" data-bind="text: familyName"></div>
+                <div id="familyMemberPreview" data-bind="foreach: familyMembers">
+                    <div class="memberFrame" data-bind="attr: { id: 'memberFrame_' + $index()}, visible: $index() < $root.numberOfVisibleMembers() && gender().optionValue == 'Male'">
+                        <div class="memberHead" data-bind="css: { small: memberType().optionValue == 'Child'}"></div>
+                        <div class="shirt" data-bind="attr: {class: 'shirt ' + shirtColor().styleName }, css: { small: memberType().optionValue == 'Child'} "></div>
+                        <div class="pants" data-bind="attr: {class: 'pants ' + pantColor().styleName }, css: { small: memberType().optionValue == 'Child'} "></div>
+                        <div class="boyshoes" data-bind="css: { small: memberType().optionValue == 'Child'}"></div>
+                        <div class="arm leftarm" data-bind="css: { small: memberType().optionValue == 'Child'}"></div>
+                        <div class="arm rightarm" data-bind="css: { small: memberType().optionValue == 'Child'}"></div>
+                        <div class="memberNameLabel" data-bind="text: memberName(), css: { small: memberType().optionValue == 'Child'}"></div>
+                        <div class="buttonContainer text-center" data-bind="visible: $root.editMode(), css: { small: memberType().optionValue == 'Child'}">
+                            <a class="btn btn-primary" data-toggle="modal" data-bind="attr: {href: '#modalMemberProperties_' + $index()}">Edit</a>
+                        </div>
+                    </div>
+                    <div class="memberFrame" data-bind="visible: $index() < $root.numberOfVisibleMembers() && gender().optionValue == 'Female'">
+                        <div class="memberHead" data-bind="css: { small: memberType().optionValue == 'Child'}"></div>
+                        <div class="dress" data-bind="attr: {class: 'dress ' + dressColor().styleName }, css: { small: memberType().optionValue == 'Child'} "></div>
+                        <div class="legs" data-bind="css: { small: memberType().optionValue == 'Child'}"></div>
+                        <div class="girlshoes" data-bind="css: { small: memberType().optionValue == 'Child'}"></div>
+                        <div class="arm leftarm" data-bind="css: { small: memberType().optionValue == 'Child'}"></div>
+                        <div class="arm rightarm" data-bind="css: { small: memberType().optionValue == 'Child'}"></div>
+                        <div class="memberNameLabel" data-bind="text: memberName(), css: { small: memberType().optionValue == 'Child'}"></div>
+                        <div class="buttonContainer text-center" data-bind="visible: $root.editMode(), css: { small: memberType().optionValue == 'Child'}">
+                            <a class="btn btn-primary" data-toggle="modal" data-bind="attr: {href: '#modalMemberProperties_' + $index()}">Edit</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="step4Container" data-bind="visible: editMode() == true">
+            <h3>Step 4: When you are finished making changes, click the I'm Done button</h3>
+            <button type="button" id="finishedButton" class="btn btn-primary">I'm Done!</button>
+        </div>
+        <div id="buyNowContainer" data-bind="visible: editMode() == false">
+            <h3>Last Step! Review Your Total and click Buy Now to place your order</h3>
+            <p>Your Glass Family will be custom made according to the options displayed above in the Preview.</p>
+            <p>Please take a moment to review them to ensure that everything is correct.<a id="makeMoreChangesButton" class="btn btn-primary">Make More Changes</a></p>
+            <div class="text-center">
+                <h4>Your Total Cost:<span data-bind="text: totalDisplayPrice()"></span></h4>
+
+                <!-- BEGIN PAYPAL BUTTON -->
+                <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="bn" value="SammySeller_BuyNow_WPS_CA">
+                    <input type="hidden" name="business" value="some@emailaddress.com">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="currency_code" value="CAD">
+                    <input type="hidden" name="item_name" data-bind="value: itemName()">
+                    <input type="hidden" name="amount" value="55" data-bind="value: totalPrice()">
+                    <input type="hidden" name="on0" value="Family Name and Member 1" />
+                    <input type="hidden" name="os0" data-bind="value: 'FamilyName=' + familyName() + ';' + familyMembers()[0].memberDetailString()" />
+                    <input type="hidden" name="on1" value="Member2" />
+                    <input type="hidden" name="os1" data-bind="value: familyMembers()[1].memberDetailString()"/>
+                    <input type="hidden" name="on2" value="Member3" />
+                    <input type="hidden" name="os2" data-bind="value: numberOfVisibleMembers() >= 3 ? familyMembers()[2].memberDetailString() : 'None'" />
+                    <input type="hidden" name="on3" value="Member4" />
+                    <input type="hidden" name="os3" data-bind="value: numberOfVisibleMembers() >= 4 ? familyMembers()[3].memberDetailString() : 'None'" />
+                    <input type="hidden" name="on4" value="Member5" />
+                    <input type="hidden" name="os4"  data-bind="value: numberOfVisibleMembers() >= 5 ? familyMembers()[4].memberDetailString() : 'None'" />
+                    <input type="hidden" name="on5" value="Member6" />
+                    <input type="hidden" name="os5"  data-bind="value: numberOfVisibleMembers() >= 6 ? familyMembers()[5].memberDetailString() : 'None'" />
+                    <input type="hidden" name="on6" value="Member7" />
+                    <input type="hidden" name="os6"  data-bind="value: numberOfVisibleMembers() == 7 ? familyMembers()[6].memberDetailString() : 'None'" />
+                    <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                    <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+
+            </div>
+
+
+        </div>
+
+        <div class="memberEditor" data-bind="foreach: familyMembers">
+            <!-- Modal -->
+            <div data-bind="attr: {id: 'modalMemberProperties_' + $index()}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">Edit This Family Member <span data-bind="visible: memberName(), text: ': ' + memberName()"></span></h3>
+                </div>
+                <div class="modal-body">
+                    <form data-bind="attr: {id: 'memberPropertiesForm_' + $index()} " class="form-horizontal">
+                        <div class="control-group">
+                            <label class="control-label" data-bind="attr: {for: 'txtMemberName_' + $index() }">Member Name:</label>
+                            <div class="controls">
+                                <input type="text" maxlength="7" data-bind="value: memberName, attr: {id: 'txtMemberName_' + $index() }" />
+                                (max: 7 characters)
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" data-bind="attr: {for: 'ddGender_' + $index() }">Gender:</label>
+                            <div class="controls">
+                                <select data-bind="options: $root.memberGenderList, value: gender, optionsText: 'optionText', attr: {id: 'ddGender_' + $index() }"></select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" data-bind="attr: {for: 'ddMemberType_' + $index() }">Type:</label>
+                            <div class="controls">
+                                <select data-bind="options: $root.memberTypeList, value: memberType, optionsText: 'optionText', attr: {id: 'ddMemberType_' + $index() }"></select>
+                            </div>
+                        </div>
+                        <div class="control-group" data-bind="visible: gender().optionValue == 'Male'">
+                            <label class="control-label" data-bind="attr: {for: 'ddShirtColor_' + $index() }">Shirt Color:</label>
+                            <div class="controls">
+                                <select data-bind="options: $root.colorList, value: shirtColor, optionsText: 'colorText', attr: {id: 'ddShirtColor_' + $index() }"></select>
+                            </div>
+                        </div>
+                        <div class="control-group" data-bind="visible: gender().optionValue == 'Male'">
+                            <label class="control-label" data-bind="attr: {for: 'ddPantColor_' + $index() }">Pant Color:</label>
+                            <div class="controls">
+                                <select data-bind="options: $root.colorList, value: pantColor, optionsText: 'colorText', attr: {id: 'ddPantColor_' + $index() }"></select>
+                            </div>
+                        </div>
+                        <div class="control-group" data-bind="visible: gender().optionValue == 'Female'">
+                            <label class="control-label" data-bind="attr: {for: 'ddDressColor_' + $index() }">Dress Color:</label>
+                            <div class="controls">
+                                <select data-bind="options: $root.colorList, value: dressColor, optionsText: 'colorText', attr: {id: 'ddDressColor_' + $index() }"></select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Done</button>
+                </div>
+
+            </div>
+
+        </div>
+    <!-- /.container -->
+        <script src="scripts/jquery-1.9.1.min.js"></script>
+        <script src="scripts/jquery.cookie.js"></script>
+        <script src="scripts/bootstrap.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+        <script src="scripts/glassFamilyModel.js"></script>
+        <script type="text/javascript">
+            //function doStuff() {
+            //    alert("dostuff");
+            //    model.editMode(false);
+            //}
+            $(document).ready(function () {
+                //$.cookie.json = true;
+
+
+
+                $("#finishedButton").click(function () {
+                    model.editMode(false);
+
+                    //var jsonData = ko.toJSON(model);
+                    //var jsonBlocks = jsonData.match(/.{1,2000}/g);
+
+                    ////persist the model to the cookie, so we can rehydrate this version if user navigates away from page
+                    //for (var block = 0; block < jsonBlocks.length; block++) {
+                    //    $.cookie("modelJSON_" + block, jsonBlocks[block].toString());
+                    //}
+                    
+
+                });
+                $("#makeMoreChangesButton").click(function () {
+                    model.editMode(true);
+
+                });
+            });
+        </script>
+</body>
+</html>

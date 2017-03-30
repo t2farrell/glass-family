@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test Page</title>
+</head>
+<body>
+    <a href="index.html">Index</a><br />
+    <a href="index2.html">Index 2</a><br />
+    <a href="test1.html">Test 1</a>
+    <div>
+        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="sell1_1360091901_biz@troyfarrell.com">
+            <input type="hidden" name="item_name" value="7 Person Glass Family">
+            <input type="hidden" name="bn" value="SammySeller_BuyNow_WPS_CA">
+            <input type="hidden" name="amount" value="55">
+            <input type="hidden" name="on0" value="Family Name" />
+            <input type="hidden" name="os0" value="The Grady's" />
+            <input type="hidden" name="on1" value="Member1" />
+            <input type="hidden" name="os1" value="Type=Adult;Name=Tony;Shoes=Blue;Pants=Green;Shirt=Red;" />
+            <input type="hidden" name="on2" value="Member2" />
+            <input type="hidden" name="os2" value="Type=Adult;Name=Kelli;Shoes=Green;Dress=Blue;" />
+            <input type="hidden" name="on3" value="Member3" />
+            <input type="hidden" name="os3" value="Type=Child;Name=Allie;Shoes=Black;Dress=Red;" />
+            <input type="hidden" name="on4" value="Member4" />
+            <input type="hidden" name="os4" value="Type=Child;Name=Josie;Shoes=Red;Dress=Blue;" />
+            <input type="hidden" name="on5" value="Member5" />
+            <input type="hidden" name="os5" value="Type=Cat;Name=Batman;Color=Black" />
+            <input type="hidden" name="on6" value="Member6" />
+            <input type="hidden" name="os6" value="Type=Dog;Name=Robin;Color=Red;" />
+
+            <input type="hidden" name="currency_code" value="CAD">
+            <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+    </div>
+</body>
+</html>

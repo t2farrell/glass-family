@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Glass Family Prototype</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="hide">
+        <i class="icon-arrow-up"></i><a href="index.html">Index</a><br />
+
+        <a href="index2.html">Index 2</a><br />
+        <a href="test1.html">Test 1</a>
+    </div>
+    <div class="page container">
+        <h2>Glass Family Configuration Prototype</h2>
+        <button id=scale>Scale</button>
+        <div class="memberFrame">
+            <div class="memberHead"></div>
+            <div class="dress crystalOpalPink"></div>
+            <div class="legs"></div>
+            <div class="girlshoes"></div>
+            <div class="arm leftarm"></div>
+            <div class="arm rightarm"></div>
+        </div>
+        <div class="memberFrame">
+            <div class="memberHead"></div>
+            <div class="shirt"></div>
+            <div class="pants"></div>
+            <div class="boyshoes"></div>
+            <div class="arm leftarm"></div>
+            <div class="arm rightarm"></div>
+        </div>
+         <div class="memberFrame">
+            <div class="memberHead small"></div>
+            <div class="dress small"></div>
+            <div class="legs small"></div>
+            <div class="girlshoes small"></div>
+            <div class="arm leftarm small"></div>
+            <div class="arm rightarm small"></div>
+        </div>
+        <div class="memberFrame">
+            <div class="memberHead small"></div>
+            <div class="shirt small"></div>
+            <div class="pants small"></div>
+            <div class="boyshoes small"></div>
+            <div class="arm leftarm small"></div>
+            <div class="arm rightarm small"></div>
+        </div>
+        <div class="formContainer">
+            <form id="configForm" class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="ddPantColor">Pants:</label>
+                    <div class="controls">
+                        <select id="ddPantColor" name="ddPantColor">
+                            <option value="color-black">Black</option>
+                            <option value="color-red">Red</option>
+                            <option value="color-mediumBlue">Blue</option>
+                            <option value="color-amazonGreen">Green</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="ddShoeColor">Shoes:</label>
+                    <div class="controls">
+                        <select id="ddShoeColor" name="ddShoeColor">
+                            <option value="#333">Black</option>
+                            <option value="#F00">Red</option>
+                            <option value="#00F">Blue</option>
+                            <option value="#008000">Green</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="ddDressColor">Dress:</label>
+                    <div class="controls">
+                        <select id="ddDressColor" name="ddDressColor">
+                            <option value="#333">Black</option>
+                            <option value="#F00">Red</option>
+                            <option value="#00F">Blue</option>
+                            <option value="#008000">Green</option>
+                        </select>
+                    </div>
+                </div>
+                                <div class="control-group">
+                    <label class="control-label" for="ddShirtColor">Shirt:</label>
+                    <div class="controls">
+                        <select id="ddShirtColor" name="ddShirtColor">
+                            <option value="#333">Black</option>
+                            <option value="#F00">Red</option>
+                            <option value="#00F">Blue</option>
+                            <option value="#008000">Green</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="scripts/jquery-1.9.1.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/modernizr-2.6.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#ddPantColor').change(function () {
+                $(".pants").removeClass(function (index, css) {
+                    return (css.match(/\bcolor-\S+/g) || []).join(' ');
+                });
+                $(".pants").addClass($('#ddPantColor').val());
+
+                //$('.pants').css('border-color', $('#ddPantColor').val());
+            });
+            $('#ddShoeColor').change(function () {
+                $('.girlshoes,.boyshoes').css('border-color', $('#ddShoeColor').val());
+            });
+            $('#ddDressColor').change(function () {
+                $('.dress').css('border-bottom-color', $('#ddDressColor').val());
+            });
+            $('#ddShirtColor').change(function () {
+                $('.shirt').css('border-bottom-color', $('#ddShirtColor').val());
+            });
+            $('#scale').click(function () {
+                $('.memberFrame').addClass('scaleSmall');
+            });
+        });
+    </script>
+</body>
+</html>

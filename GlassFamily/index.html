@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Glass Family Prototype</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+
+
+    <!-- NAVBAR
+    ================================================== -->
+    <div class="navbar-wrapper">
+        <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+        <div class="container">
+
+            <div class="navbar navbar-inverse">
+                <div class="navbar-inner">
+                    <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="index.html">Glass Family</a>
+                    <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+                <!-- /.navbar-inner -->
+            </div>
+            <!-- /.navbar -->
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.navbar-wrapper -->
+
+
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="img/carousel1.png" alt="">
+                <div class="container">
+                    <div class="carousel-image pull-right">
+                        <img src="img/GradyGlassSample.png" />
+                    </div>
+                    <div class="carousel-caption">
+                        <h1>4 Member Glass Family</h1>
+                        <p class="lead">You can define your family name, and the names of your family members.</p>
+                        <a class="btn btn-large btn-primary" href="configure.html">Configure Yours Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="img/carousel1.png" alt="">
+                <div class="container">
+                    <div class="carousel-image pull-right">
+                        <img src="img/theGradysSample.jpg" />
+                    </div>
+                    <div class="carousel-caption">
+
+                        <h1>Another example headline.</h1>
+                        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <a class="btn btn-large btn-primary" href="configure.html">Configure Yours Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="img/carousel1.png" alt="">
+                <div class="container">
+                    <div class="carousel-image pull-right">
+                        <img src="img/theGradysSample.jpg" />
+                    </div>
+                    <div class="carousel-caption">
+                        <h1>One more for good measure.</h1>
+                        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <a class="btn btn-large btn-primary" href="configure.html">Configure Yours Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+    <!-- /.carousel -->
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="span4">
+                <img class="img-circle" data-src="holder.js/140x140">
+                <h2>Handcrafted</h2>
+                <p>Each customized Glass Family is made to order, with kiln fired glass handcrafted to represent your family.</p>
+                <p><a class="btn" href="configure.html">Configure Yours Now &raquo;</a></p>
+            </div>
+            <!-- /.span4 -->
+            <div class="span4">
+                <img class="img-circle" data-src="holder.js/140x140">
+                <h2>Customized</h2>
+                <p>You define the number of family members and each of their names.  You decide what color clothes they wear.  You define the family name that appears at the top. </p>
+                <p><a class="btn" href="#modalCustomizationInfo" data-toggle="modal">View Details &raquo;</a></p>
+            </div>
+            <!-- /.span4 -->
+            <div class="span4">
+                <img class="img-circle" data-src="holder.js/140x140">
+                <h2>Quality</h2>
+                <p>The Glass Family is created by glass artists with over 20 years of experience, working with all types of glass, including windows and custom art projects.</p>
+                <p><a class="btn" href="about.html">View Details &raquo;</a></p>
+            </div>
+            <!-- /.span4 -->
+        </div>
+        <!-- /.row -->
+
+
+        <!-- Modal -->
+        <div id="modalCustomizationInfo" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Customize Your Glass Family</h3>
+            </div>
+            <div class="modal-body">
+                <h4>Pricing</h4>
+                <dl class="dl-horizontal">
+                    <dt>2 Member Family</dt>
+                    <dd>$30.00</dd>
+                    <dt>3 Member Family</dt>
+                    <dd>$35.00</dd>
+                    <dt>4 Member Family</dt>
+                    <dd>$40.00</dd>
+                    <dt>5 Member Family</dt>
+                    <dd>$45.00</dd>
+                    <dt>6 Member Family</dt>
+                    <dd>$50.00</dd>
+                    <dt>7 Member Family</dt>
+                    <dd>$55.00</dd>
+                </dl>
+                <h4>Configuration Options</h4>
+                <p>You can define the following options for your Glass Family:</p>
+                <dl class="dl-horizontal">
+                    <dt>Family Name</dt>
+                    <dd>Appears at the top (Max. 20 characters).</dd>
+                    <dt>Member Name</dt>
+                    <dd>Appears below each family member (Max. 10 characters).</dd>
+                    <dt>Gender</dt>
+                    <dd>Male members wear pants/t-shirt and female members wear a dress.</dd>
+                    <dt>Member Size</dt>
+                    <dd>Child or Adult</dd>
+                    <dt>Clothes</dt>
+                    <dd>Pants and T-shirt color, or Dress color, from the list of available colors.</dd>
+                </dl>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+        </div>
+
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+
+        <div class="featurette">
+            <img class="featurette-image pull-right" src="../assets/img/examples/browser-icon-chrome.png">
+            <h2 class="featurette-heading">First featurette headling. <span class="muted">It'll blow your mind.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="featurette">
+            <img class="featurette-image pull-left" src="../assets/img/examples/browser-icon-firefox.png">
+            <h2 class="featurette-heading">Oh yeah, it's that good. <span class="muted">See for yourself.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="featurette">
+            <img class="featurette-image pull-right" src="../assets/img/examples/browser-icon-safari.png">
+            <h2 class="featurette-heading">And lastly, this one. <span class="muted">Checkmate.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- /END THE FEATURETTES -->
+
+
+        <!-- FOOTER -->
+        <footer>
+            <p class="pull-right"><a href="#">Back to top</a></p>
+            <p>&copy; 2013 Hues In Glass </p>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+    <script src="scripts/jquery-1.9.1.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+
+
+    <script>
+        !function ($) {
+            $(function () {
+                // carousel demo
+                $('#myCarousel').carousel({
+                    pause: "hover"
+                })
+            })
+        }(window.jQuery)
+    </script>
+</body>
+</html>

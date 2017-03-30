@@ -1,0 +1,657 @@
+﻿
+/* GLOBAL STYLES
+    -------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+    padding-bottom: 40px;
+    color: #5a5a5a;
+   /* background-image: url('/img/header.png'); */
+    /*background-repeat: repeat-x;*/
+}
+
+.page.container {
+    padding-top: 95px;
+    min-height: 400px;
+}
+
+/* CUSTOMIZE THE NAVBAR
+    -------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    margin-top: 20px;
+    margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+}
+
+    .navbar-wrapper .navbar {
+    }
+
+/* Remove border and change up box shadow for more contrast */
+.navbar .navbar-inner {
+    border: 0;
+    -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+    -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+    box-shadow: 0 2px 10px rgba(0,0,0,.25);
+}
+
+/* Downsize the brand/project name a bit */
+.navbar .brand {
+    padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+}
+
+/* Navbar links: increase padding for taller navbar */
+.navbar .nav > li > a {
+    padding: 15px 20px;
+}
+
+/* Offset the responsive button for proper vertical alignment */
+.navbar .btn-navbar {
+    margin-top: 10px;
+}
+
+
+
+/* CUSTOMIZE THE CAROUSEL
+    -------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+    margin-bottom: 60px;
+}
+
+    .carousel .container {
+        position: relative;
+        z-index: 9;
+    }
+
+.carousel-control {
+    height: 80px;
+    margin-top: 0;
+    font-size: 120px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    background-color: transparent;
+    border: 0;
+    z-index: 10;
+}
+
+.carousel .item {
+    height: 500px;
+}
+
+.carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 500px;
+}
+
+.carousel-caption {
+    background-color: transparent;
+    position: static;
+    max-width: 550px;
+    padding: 0 20px;
+    margin-top: 200px;
+}
+
+    .carousel-caption h1,
+    .carousel-caption .lead {
+        margin: 0;
+        line-height: 1.25;
+        color: #fff;
+        text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    }
+
+    .carousel-caption .btn {
+        margin-top: 10px;
+    }
+
+.carousel-image {
+    margin-top: 200px;
+}
+
+    .carousel-image img {
+        position: static;
+        max-height: 250px;
+        max-width: 350px;
+    }
+
+.carousel-indicators {
+    position: absolute;
+    top: 110px;
+    right: 110px;
+    z-index: 5;
+    margin: 0;
+    list-style: none;
+}
+
+    .carousel-indicators li {
+        display: block;
+        float: left;
+        width: 10px;
+        height: 10px;
+        margin-left: 5px;
+        text-indent: -999px;
+        background-color: #ccc;
+        background-color: rgba(255, 255, 255, 0.25);
+        border-radius: 5px;
+    }
+
+    .carousel-indicators .active {
+        background-color: #fff;
+    }
+/* MARKETING CONTENT
+    -------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .span4 {
+    text-align: center;
+}
+
+.marketing h2 {
+    font-weight: normal;
+}
+
+.marketing .span4 p {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+/* Featurettes
+    ------------------------- */
+
+.featurette-divider {
+    margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+.featurette {
+    padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
+    overflow: hidden; /* Vertically center images part 2: clear their floats. */
+}
+
+.featurette-image {
+    margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+}
+
+    /* Give some space on the sides of the floated elements so text doesn't run right into it. */
+    .featurette-image.pull-left {
+        margin-right: 40px;
+    }
+
+    .featurette-image.pull-right {
+        margin-left: 40px;
+    }
+
+/* Thin out the marketing headings */
+.featurette-heading {
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+
+
+/* RESPONSIVE CSS
+    -------------------------------------------------- */
+
+@media (max-width: 979px) {
+
+    .container.navbar-wrapper {
+        margin-bottom: 0;
+        width: auto;
+    }
+
+    .navbar-inner {
+        border-radius: 0;
+        margin: -20px 0;
+    }
+
+    .carousel .item {
+        height: 500px;
+    }
+
+    .carousel img {
+        width: auto;
+        height: 500px;
+    }
+
+    .featurette {
+        height: auto;
+        padding: 0;
+    }
+
+    .featurette-image.pull-left,
+    .featurette-image.pull-right {
+        display: block;
+        float: none;
+        max-width: 40%;
+        margin: 0 auto 20px;
+    }
+}
+
+
+@media (max-width: 767px) {
+
+    .navbar-inner {
+        margin: -20px;
+    }
+
+    .carousel {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+
+        .carousel .container {
+        }
+
+        .carousel .item {
+            height: 300px;
+        }
+
+        .carousel img {
+            height: 300px;
+        }
+
+    .carousel-caption {
+        width: 65%;
+        padding: 0 70px;
+        margin-top: 100px;
+    }
+
+        .carousel-caption h1 {
+            font-size: 30px;
+        }
+
+        .carousel-caption .lead,
+        .carousel-caption .btn {
+            font-size: 18px;
+        }
+
+    .marketing .span4 + .span4 {
+        margin-top: 40px;
+    }
+
+    .featurette-heading {
+        font-size: 30px;
+    }
+
+    .featurette .lead {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+}
+
+
+
+
+
+
+.dress {
+    border-bottom: 100px solid #333;
+    border-left: 36px solid transparent;
+    border-right: 36px solid transparent;
+    height: 0;
+    width: 34px;
+}
+
+    .dress.small {
+        border-bottom: 76px solid #333;
+        border-left: 28px solid transparent;
+        border-right: 28px solid transparent;
+        width: 32px;
+    }
+
+.pants {
+    border-left: 28px solid #333;
+    border-right: 28px solid #333;
+    height: 82px;
+    width: 6px;
+    -moz-border-radius-bottomleft: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+    .pants.small {
+        border-left: 26px solid #333;
+        border-right: 26px solid #333;
+        height: 64px;
+        width: 4px;
+    }
+
+.legs {
+    border-left: 8px solid #040000;
+    border-right: 8px solid #040000;
+    height: 58px;
+    width: 25px;
+}
+
+    .legs.small {
+        border-left: 7px solid #040000;
+        border-right: 7px solid #040000;
+        height: 47px;
+        width: 23px;
+    }
+
+.girlshoes {
+    border-left: 36px solid #040000;
+    border-right: 36px solid #040000;
+    height: 15px;
+    width: 19px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+
+.boyshoes {
+    border-left: 42px solid #040000;
+    border-right: 42px solid #040000;
+    height: 17px;
+    width: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.shirt {
+    border-bottom: 75px solid #333;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    height: 0;
+    width: 44px;
+}
+
+    .shirt.small {
+        border-bottom: 57px solid #333;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        width: 43px;
+    }
+
+.arm {
+    height: 55px;
+    width: 3px;
+    background-color: #333;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+    .arm.rightarm {
+        -webkit-transform: rotate(-40deg);
+        -moz-transform: rotate(-40deg);
+        -ms-transform: rotate(-40deg);
+        -o-transform: rotate(-40deg);
+    }
+
+    .arm.leftarm {
+        -webkit-transform: rotate(40deg);
+        -moz-transform: rotate(40deg);
+        -ms-transform: rotate(40deg);
+        -o-transform: rotate(40deg);
+    }
+
+.memberHead {
+    width: 50px;
+    height: 50px;
+    background: #D7F3F2;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    border-radius: 25px;
+}
+
+    .memberHead.small {
+        width: 45px;
+        height: 45px;
+    }
+
+
+.memberNameLabel {
+    color: #040000;
+    font-family: Verdana;
+    font-size: 20px;
+    font-weight: bold;
+    min-height: 20px;
+}
+#familyNameLabel {
+    color: #040000;
+     font-family: Verdana;
+    font-size: 41px;
+    font-weight: bold;
+    line-height: 1;
+    min-height: 41px;
+}
+
+.memberFrame {
+    display: inline-block;
+    width: 108px;
+    height: 275px;
+    margin: 10px;
+}
+
+    .memberFrame .memberHead {
+        position: relative;
+        top: 30px;
+        margin: auto;
+    }
+
+        .memberFrame .memberHead.small {
+            top: 71px;
+        }
+
+    .memberFrame .dress {
+        position: relative;
+        top: 30px;
+        margin: auto;
+    }
+
+        .memberFrame .dress.small {
+            top: 71px;
+        }
+
+    .memberFrame .shirt {
+        position: relative;
+        top: 30px;
+        margin: auto;
+    }
+
+        .memberFrame .shirt.small {
+            top: 71px;
+        }
+
+
+
+    .memberFrame .pants {
+        position: relative;
+        top: 30px;
+        margin: auto;
+    }
+
+        .memberFrame .pants.small {
+            top: 71px;
+        }
+
+    .memberFrame .legs {
+        position: relative;
+        top: 30px;
+        margin: auto;
+    }
+
+        .memberFrame .legs.small {
+            top: 71px;
+        }
+
+    .memberFrame .girlshoes {
+        position: relative;
+        top: 30px;
+        margin: auto;
+    }
+
+        .memberFrame .girlshoes.small {
+            top: 71px;
+        }
+
+    .memberFrame .boyshoes {
+        position: relative;
+        top: 30px;
+        margin: auto;
+    }
+
+        .memberFrame .boyshoes.small {
+            top: 71px;
+        }
+
+    .memberFrame .leftarm {
+        position: relative;
+        top: -144px;
+        left: 9px;
+    }
+
+        .memberFrame .leftarm.small {
+            top: -66px;
+            left: 10px;
+        }
+
+    .memberFrame .rightarm {
+        position: relative;
+        top: -201px;
+        left: 98px;
+    }
+
+        .memberFrame .rightarm.small {
+            top: -122px;
+            left: 96px;
+        }
+
+    .memberFrame .buttonContainer {
+        position: relative;
+        width: 65px;
+        height: 40px;
+        top: -55px;
+        margin: auto;
+    }
+        .memberFrame .buttonContainer.small {
+            top: -14px;
+        }
+
+    .memberFrame .memberNameLabel {
+        position: relative;
+        top: -75px;
+        margin: auto;
+    }
+        .memberFrame .memberNameLabel.small {
+            top: -32px;
+        }
+
+
+
+
+/*** member clothing colors   ***/
+.dress.color-amazonGreen, .shirt.color-amazonGreen {
+    border-bottom-color: #7EBE46;
+}
+
+.pants.color-amazonGreen {
+    border-color: #7EBE46;
+}
+
+.dress.color-black, .shirt.color-black {
+    border-bottom-color: #040000;
+}
+
+.pants.color-black {
+    border-color: #040000;
+}
+
+.dress.color-darkGreen, .shirt.color-darkGreen {
+    border-bottom-color: #023E1A;
+}
+
+.pants.color-darkGreen {
+    border-color: #023E1A;
+}
+
+.dress.color-lilac, .shirt.color-lilac {
+    border-bottom-color: #8B7B86;
+}
+
+.pants.color-lilac {
+    border-color: #8B7B86;
+}
+
+.dress.color-mediumBlue, .shirt.color-mediumBlue {
+    border-bottom-color: #26519F;
+}
+
+.pants.color-mediumBlue {
+    border-color: #26519F;
+}
+
+.dress.color-persimmon, .shirt.color-persimmon {
+    border-bottom-color: #D17B26;
+}
+
+.pants.color-persimmon {
+    border-color: #D17B26;
+}
+
+.dress.color-red, .shirt.color-red {
+    border-bottom-color: #C52527;
+}
+
+.pants.color-red {
+    border-color: #C52527;
+}
+
+.dress.color-sunflower, .shirt.color-sunflower {
+    border-bottom-color: #F3DB30;
+}
+
+.pants.color-sunflower {
+    border-color: #F3DB30;
+}
+
+.dress.color-turquoiseBlue, .shirt.color-turquoiseBlue {
+    border-bottom-color: #0690AA;
+}
+
+.pants.color-turquoiseBlue {
+    border-color: #0690AA;
+}
+
+.dress.color-white, .shirt.color-white {
+    border-bottom-color: #E2E2E2;
+}
+
+.pants.color-white {
+    border-color: #E2E2E2;
+}
+
+.pants.crystalOpalPink {
+    -moz-border-image: url(../img/colorImages/CrystalOpalPink.png) 1 45 round; /* Old Firefox */
+    -webkit-border-image: url(../img/colorImages/CrystalOpalPink.png) 1 45 round; /* Safari */
+    -o-border-image: url(../img/colorImages/CrystalOpalPink.png) 1 45 round; /* Opera */
+    border-image: url(../img/colorImages/CrystalOpalPink.png) 1 45 round;
+}
+#previewFrameWrapper {
+    margin-bottom: 50px;
+}
+
+#previewFrame {
+    border: 1px solid black;
+    display: inline-block;
+    margin: auto;
+}
