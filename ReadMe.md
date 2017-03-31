@@ -22,7 +22,7 @@ This prototype was built using knockout.js.
 The prototype contains some basic filler pages such as *About* and *Main*, but the primary work exists with the *configure.html* page.  Before any styling could be applied to the page, the project was dropped by the client.
 
 ## Website Configuration Form Screenshot
-![Website Configuration Form Screenshot](GlassFamily/img/PrototypeConfigScreenshot.png?raw=true | width=700 "Website Configuration Form Screenshot")
+![Website Configuration Form Screenshot](GlassFamily/img/PrototypeConfigScreenshot.png? =700x "Website Configuration Form Screenshot")
 
 ## Website Sample Image
 ![Website Sample Image](GlassFamily/img/TheGradysSample.jpg?raw=true "Website Sample Image")
